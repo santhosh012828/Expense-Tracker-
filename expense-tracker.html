@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <a href="login.html" class="btn btn-danger float-end" onclick="sessionStorage.removeItem('loggedInUser'); alert('Logged out successfully!')">Logout</a>
+
+        <h2>Welcome, <span id="username"></span></h2>
+
+        <div class="summary p-3 bg-light rounded text-center">
+            <h4>Balance: ₹<span id="balance">0</span></h4>
+            <h5 class="text-success">Income: ₹<span id="income">0</span></h5>
+            <h5 class="text-danger">Expenses: ₹<span id="expenses">0</span></h5>
+        </div>
+
+        <div class="card p-4 mt-3">
+            <div class="input-group mb-3">
+                <input type="text" id="name" class="form-control" placeholder="Expense Name">
+                <input type="number" id="amount" class="form-control" placeholder="Amount"><br>
+                <label for="type" class="form-label">Transaction Type</label>
+<select id="type" class="form-select" required>
+    <option value="" disabled selected>Select Type</option>
+    <option value="income">Income</option>
+    <option value="expense">Expense</option>
+</select>
+
+                   <button class="btn btn-primary" onclick="addExpense()">Add</button>
+            </div>
+        </div>
+
+        <table class="table table-bordered mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="expense-table"></tbody>
+        </table>
+    </div>
+   
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
